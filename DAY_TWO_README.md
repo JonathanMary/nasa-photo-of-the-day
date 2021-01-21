@@ -21,7 +21,7 @@ This homework is a continuation of the work you have done previously.
 
 ### Task 2a: MVP Requirements
 
-- [ ] Style your app using styled-components.
+- [x] Style your app using styled-components.
 
 ### Task 3: Stretch Problems
 
