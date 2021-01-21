@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { BASE_URL, API_KEY } from "./constants";
+import styled, { keyframes } from 'styled-components';
 
 
 function App() {
@@ -30,23 +31,43 @@ function App() {
   }
 
   return (
-    <div className="App container">
-      <header>
-        <h1>Astronomy Picture of the Day</h1>
-      </header>
-      <section>
-        <img id="image" src={data.url} alt="astronomy"></img>
-      <div id="explanation-text">
-      <p>{data.explanation}</p>
-      <p>{data.title + " / " + data.date}</p>
+    <DayTwoStyle>
+      <div className="App container">
+        <header>
+          <h1>Astronomy Picture of the Day</h1>
+        </header>
+        <section>
+          <img id="image" src={data.url} alt="astronomy"></img>
+        <div id="explanation-text">
+        <p>{data.explanation}</p>
+        <p>{data.title + " / " + data.date}</p>
+        </div>
+        </section>
+        <footer>
+          <p>Copyright &copy; 2021 All Rights Reserved by <a href="https://www.nasa.gov">Nasa</a></p>
+        </footer>
+        
       </div>
-      </section>
-      <footer>
-        <p>Copyright &copy; 2021 All Rights Reserved by <a href="https://www.nasa.gov">Nasa</a></p>
-      </footer>
-      
-    </div>
+    </DayTwoStyle>
   );
 }
 
 export default App;
+
+const rotate = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`;
+
+const DayTwoStyle = styled.div`
+  #image{
+    border-radius: 50%;
+    animation: ${rotate} 120s linear infinite;
+  }
+  h1{
+    color: ${props => props.theme.primaryColor};
+  }
+  #explanation-text{
+    border: 4px solid ${props => props.theme.ctaColor};
+  }
+`;
