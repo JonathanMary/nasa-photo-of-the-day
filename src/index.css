@@ -371,4 +371,16 @@ code {
 
 .container{
   text-align: center;
+  margin: 0 10%;
+}
+#image{
+  width: 40vw;
+  height: 40vw;
+}
+#explanation-text{
+  border: 3px solid black;
+  margin-top: 2%;
+  padding: 2%;
+  font-style: italic;
+  font-size: 90%;
 }
